@@ -18,6 +18,9 @@ gulp.task('serve-static', function(){
     }));
 });
 
+res.end('http://localhost:8443/index.html');
+
+
 gulp.task('validate-xml', function () {
   var options = minimist(process.argv.slice(2));
   var xsd = fs.readFileSync('./manifest.xsd');
@@ -25,6 +28,7 @@ gulp.task('validate-xml', function () {
   var resultsAsJson = options.json || false;
   var xml = fs.readFileSync(xmlFilePath);
   
+
   if (!resultsAsJson) {
     console.log('\nValidating ' + chalk.blue(xmlFilePath.substring(xmlFilePath.lastIndexOf('/')+1)) + ':');
   } 
